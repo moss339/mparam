@@ -1,5 +1,6 @@
 #include "mparam/param_client.h"
 
+namespace moss {
 namespace mparam {
 
 std::shared_ptr<ParameterClient> ParameterClient::create(const std::string& shm_name) {
@@ -25,3 +26,5 @@ bool ParameterClient::is_connected() const {
 }
 
 }  // namespace mparam
+
+}  // namespace moss

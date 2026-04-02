@@ -1,0 +1,15 @@
+name: mparam
+description: MOSS Parameter Management
+
+source:
+  root: .
+
+dependencies:
+  local:
+    - mlog
+    - mshm
+
+build:
+  type: library
+  cmake_options:
+    CMAKE_BUILD_TYPE: Release

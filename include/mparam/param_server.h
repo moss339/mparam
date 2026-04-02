@@ -6,6 +6,7 @@
 #include <memory>
 #include <string>
 
+namespace moss {
 namespace mparam {
 
 class ParameterServer : public std::enable_shared_from_this<ParameterServer> {
@@ -81,4 +82,5 @@ bool ParameterServer::declare(const std::string& key, const T& default_value,
 
 }  // namespace mparam
 
+}  // namespace moss
 #endif  // MPARAM_PARAM_SERVER_H

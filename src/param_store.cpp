@@ -3,6 +3,7 @@
 #include <ctime>
 #include <set>
 
+namespace moss {
 namespace mparam {
 
 ParameterStore::ParameterStore()
@@ -171,3 +172,5 @@ void ParameterStore::notify_change(const std::string& key,
 }
 
 }  // namespace mparam
+
+}  // namespace moss

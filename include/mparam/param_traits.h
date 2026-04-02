@@ -4,6 +4,7 @@
 #include "param_types.h"
 #include <type_traits>
 
+namespace moss {
 namespace mparam {
 
 template<typename T>
@@ -44,4 +45,5 @@ struct ParamTraits<std::string> {
 
 }  // namespace mparam
 
+}  // namespace moss
 #endif  // MPARAM_PARAM_TRAITS_H

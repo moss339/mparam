@@ -7,6 +7,7 @@
 #include <mutex>
 #include <functional>
 
+namespace moss {
 namespace mparam {
 
 class ParameterStore {
@@ -47,4 +48,5 @@ private:
 
 }  // namespace mparam
 
+}  // namespace moss
 #endif  // MPARAM_PARAM_STORE_H

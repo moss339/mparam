@@ -3,6 +3,7 @@
 #include <sstream>
 #include <cJSON.h>
 
+namespace moss {
 namespace mparam {
 
 std::shared_ptr<ParameterServer> ParameterServer::create(const std::string& shm_name) {
@@ -101,3 +102,5 @@ ParameterStore& ParameterServer::get_store() {
 }
 
 }  // namespace mparam
+
+}  // namespace moss

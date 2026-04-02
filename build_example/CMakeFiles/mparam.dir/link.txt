@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O3 -DNDEBUG -shared -Wl,-soname,libmparam.so.1 -o libmparam.so.1.0.0 CMakeFiles/mparam.dir/src/param_store.cpp.o CMakeFiles/mparam.dir/src/param_server.cpp.o CMakeFiles/mparam.dir/src/param_client.cpp.o CMakeFiles/mparam.dir/mnt/data/workspace/moss/mlog/thirdparty/cJSON/cJSON.c.o  -lpthread 

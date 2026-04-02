@@ -7,6 +7,7 @@
 #include <string>
 #include <future>
 
+namespace moss {
 namespace mparam {
 
 class ParameterClient : public std::enable_shared_from_this<ParameterClient> {
@@ -93,4 +94,5 @@ size_t ParameterClient::watch(const std::string& key,
 
 }  // namespace mparam
 
+}  // namespace moss
 #endif  // MPARAM_PARAM_CLIENT_H

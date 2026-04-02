@@ -7,6 +7,7 @@
 #include <variant>
 #include <functional>
 
+namespace moss {
 namespace mparam {
 
 enum class ParamType : uint8_t {
@@ -61,4 +62,5 @@ using ChangeCallback = std::function<void(const ParameterChange&)>;
 
 }  // namespace mparam
 
+}  // namespace moss
 #endif  // MPARAM_TYPES_H
