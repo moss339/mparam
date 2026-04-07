@@ -33,15 +33,7 @@ Parameter ParameterStore::deep_copy(const Parameter& param) const {
     copy.version = param.version;
     copy.timestamp = param.timestamp;
     copy.flags = param.flags;
-
-    switch (param.type) {
-        case ParamType::STRING:
-            copy.value.as_string = new std::string(*param.value.as_string);
-            break;
-        default:
-            copy.value = param.value;
-            break;
-    }
+    copy.value = param.value;  // std::variant handles copying correctly
     return copy;
 }
 
@@ -73,7 +65,7 @@ bool ParameterStore::set_int(const std::string& key, int64_t value) {
     Parameter param;
     param.key = key;
     param.type = ParamType::INT;
-    param.value.as_int = value;
+    param.value = value;
     return set(key, param);
 }
 
@@ -81,7 +73,7 @@ bool ParameterStore::set_double(const std::string& key, double value) {
     Parameter param;
     param.key = key;
     param.type = ParamType::DOUBLE;
-    param.value.as_double = value;
+    param.value = value;
     return set(key, param);
 }
 
@@ -89,7 +81,7 @@ bool ParameterStore::set_bool(const std::string& key, bool value) {
     Parameter param;
     param.key = key;
     param.type = ParamType::BOOL;
-    param.value.as_bool = value;
+    param.value = value;
     return set(key, param);
 }
 
@@ -97,7 +89,7 @@ bool ParameterStore::set_string(const std::string& key, const std::string& value
     Parameter param;
     param.key = key;
     param.type = ParamType::STRING;
-    param.value.as_string = new std::string(value);
+    param.value = value;
     return set(key, param);
 }
 
@@ -172,5 +164,4 @@ void ParameterStore::notify_change(const std::string& key,
 }
 
 }  // namespace mparam
-
 }  // namespace moss

@@ -19,14 +19,14 @@ enum class ParamType : uint8_t {
     JSON = 5
 };
 
-union ParamValue {
-    int64_t as_int;
-    double as_double;
-    bool as_bool;
-    std::string* as_string;
-
-    ParamValue() : as_int(0) {}
-};
+// B18 fix: Use std::variant instead of unsafe union
+using ParamValue = std::variant<
+    std::monostate,  // NONE
+    int64_t,         // INT
+    double,          // DOUBLE
+    bool,            // BOOL
+    std::string      // STRING
+>;
 
 struct Parameter {
     std::string key;
@@ -36,10 +36,8 @@ struct Parameter {
     int64_t timestamp;
     uint32_t flags;
 
-    Parameter() : version(0), timestamp(0), flags(0) {
-        value.as_int = 0;
-        type = ParamType::NONE;
-    }
+    Parameter() : value(std::monostate{}), type(ParamType::NONE),
+                  version(0), timestamp(0), flags(0) {}
 };
 
 struct ParameterChange {
@@ -61,6 +59,9 @@ struct TypedParameter {
 using ChangeCallback = std::function<void(const ParameterChange&)>;
 
 }  // namespace mparam
-
 }  // namespace moss
+
+// Convenience namespace alias
+namespace mparam = moss::mparam;
+
 #endif  // MPARAM_TYPES_H

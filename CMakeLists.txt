@@ -9,6 +9,8 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 option(MPARAM_BUILD_TESTS "Build mparam tests" ON)
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 
+find_package(Threads REQUIRED)
+
 set(CJSON_ROOT "${CMAKE_CURRENT_SOURCE_DIR}/../mlog/thirdparty/cJSON")
 
 include(CMakePackageConfigHelpers)
